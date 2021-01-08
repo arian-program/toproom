@@ -1,0 +1,36 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'my.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <form method="POST">
+		{% csrf_token %}
+		<div class="row comment-box-main p-3 rounded-bottom">
+			<div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
+				<!-- <input type="text" class="form-control" placeholder="message ...." /> -->
+                {{ form }}
+                <button type="submit">Send</button>
+			</div>
+			{% comment %} <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
+				<button class="btn btn-info">Send</button>
+			</div> {% endcomment %}
+		</div>
+	</form>
+
+
+
+
+
+</body>
+</html>

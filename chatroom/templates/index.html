@@ -1,0 +1,94 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'my.css' %}">
+    <title>تاپ روم | چت روم به سبک تاپ سافت</title>
+  </head>
+  <body>
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-md-6 offset-md-3 col-sm-6 offset-sm-3 col-12 comments-main pt-4 rounded" style="overflow: auto; height: 600px;">
+
+
+
+
+                {% for ms in message %}
+                
+				<ul class="p-0">
+					<li>
+						<div class="row comments mb-2">
+							<div class="col-md-2 col-sm-2 col-3 text-center user-img">
+						    	<img id="profile-photo" src="http://nicesnippets.com/demo/man01.png" class="rounded-circle" />
+							</div>
+							<div class="col-md-9 col-sm-9 col-9 comment rounded mb-2">
+								<h4 class="m-0"><a href="#">{{ ms.athor }}</a></h4>
+							    <time class="text-white ml-3">{{ ms.date }}</time>
+							    <like></like>
+							    <p class="mb-0 text-white">{{ ms.matnpayam }}</p>
+							</div>
+						</div>
+					</li>
+                </ul>
+                
+                {% endfor %}
+
+
+
+
+				<form method="POST">
+					{% csrf_token %}
+					<div class="row comment-box-main p-3 rounded-bottom">
+						{% comment %} <div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
+						<!-- <input type="text" class="form-control" placeholder="message ...." /> -->
+						{{ form }}
+						</div> {% endcomment %}
+						<div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
+							<a href="gh" class="btn btn-info">Send</a>
+						</div>
+					</div>
+				</form>
+
+
+
+			
+				
+
+				
+				
+
+
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+  </body>
+  <script>
+      Vue.component('like', {
+	    template: "<div class='like-data float-right text-white'><button class='icon-rocknroll mr-1 p-0 border-0' v-class='active: liked' v-on='click: toggleLike'><i class='fa fa-thumbs-up text-white' aria-hidden='true'></i></button><span class='like-count' v-class='active: liked'>{{ likesCount }}</span></div>",
+	    data: function() {
+	        return {
+	            liked: false,
+	            likesCount: 0
+	        }
+	    },
+	    methods: {
+	        toggleLike: function() {
+	            this.liked = !this.liked;
+	            this.liked ? this.likesCount++ : this.likesCount--;
+	        }
+	    }
+	});
+	new Vue({
+	    el: '.comments-main',
+	});
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.14/vue.min.js'></script>
+</html>
