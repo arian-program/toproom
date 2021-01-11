@@ -20,7 +20,7 @@ you can do this !
 
 ## TODO
 
-[x] upload project in server
-[ ] make user login for this
-[ ] make file sender
-[ ] and others
+- [x] upload project in server
+- [ ] make user login for this
+- [ ] make file sender
+- [ ] and others
