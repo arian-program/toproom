@@ -23,4 +23,9 @@ you can do this !
 - [x] upload project in server
 - [ ] make user login for this
 - [ ] make file sender
-- [ ] and others
+- [ ] can change profile
+- [ ] and beatable
+- [ ] make it secure
+
+
+#### have a good time
